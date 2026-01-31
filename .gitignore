@@ -1,0 +1,22 @@
+# Build artifacts
+/target/
+
+# Cargo lock file (optional - uncomment if you want to ignore it)
+# Cargo.lock
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Generated reports
+*.html
+!README.html
+
+# Debug files
+*.log
