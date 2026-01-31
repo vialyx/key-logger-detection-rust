@@ -1,0 +1,69 @@
+[package]
+name = "keylogger-detector"
+version = "0.1.0"
+edition = "2021"
+authors = ["Security Researcher"]
+description = "A comprehensive keylogger detection tool written in Rust"
+license = "Apache-2.0"
+readme = "README.md"
+keywords = ["security", "keylogger", "detection", "cybersecurity"]
+categories = ["command-line-utilities", "development-tools"]
+
+[dependencies]
+# CLI framework
+clap = { version = "4.4", features = ["derive"] }
+
+# Async runtime
+tokio = { version = "1.35", features = ["full"] }
+
+# System information
+sysinfo = "0.30"
+
+# File system watching
+notify = "6.1"
+
+# Colored terminal output
+colored = "2.1"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Date/time handling
+chrono = { version = "0.4", features = ["serde"] }
+
+# Logging
+log = "0.4"
+env_logger = "0.10"
+
+# Error handling
+thiserror = "1.0"
+anyhow = "1.0"
+
+# Regex for pattern matching
+regex = "1.10"
+
+# Hash computation for file signatures
+sha2 = "0.10"
+hex = "0.4"
+
+# Directory traversal
+walkdir = "2.4"
+
+# Tempfile for tests
+tempfile = "3.10"
+
+# Platform-specific dependencies
+[target.'cfg(target_os = "macos")'.dependencies]
+core-foundation = "0.9"
+
+[target.'cfg(target_os = "linux")'.dependencies]
+procfs = "0.16"
+
+[target.'cfg(windows)'.dependencies]
+winapi = { version = "0.3", features = ["tlhelp32", "processthreadsapi", "handleapi", "winuser"] }
+
+[profile.release]
+opt-level = 3
+lto = true
+strip = true

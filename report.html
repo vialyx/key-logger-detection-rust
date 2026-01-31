@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keylogger Detection Report</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #eee;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { 
+            text-align: center; 
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            background: linear-gradient(90deg, #00d9ff, #00ff88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .card h2 {
+            color: #00d9ff;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 0.5rem;
+        }
+        .status { 
+            text-align: center; 
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+        .status.clean { background: linear-gradient(135deg, #00c853, #00e676); }
+        .status.threat { background: linear-gradient(135deg, #ff1744, #f50057); }
+        .status h2 { color: white; font-size: 2rem; margin: 0; }
+        .status p { color: rgba(255,255,255,0.9); margin-top: 0.5rem; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; }
+        .stat { text-align: center; padding: 1rem; }
+        .stat-value { font-size: 2rem; font-weight: bold; color: #00ff88; }
+        .stat-label { color: #aaa; font-size: 0.9rem; }
+        .detection {
+            background: rgba(255, 23, 68, 0.1);
+            border-left: 4px solid #ff1744;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+        .detection.critical { border-color: #ff1744; }
+        .detection.high { border-color: #ff9100; }
+        .detection.medium { border-color: #ffea00; }
+        .detection.low { border-color: #00e5ff; }
+        .detection h3 { color: #ff1744; margin-bottom: 0.5rem; }
+        .detection.high h3 { color: #ff9100; }
+        .detection.medium h3 { color: #ffea00; }
+        .detection.low h3 { color: #00e5ff; }
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .badge-critical { background: #ff1744; }
+        .badge-high { background: #ff9100; }
+        .badge-medium { background: #ffea00; color: #000; }
+        .badge-low { background: #00e5ff; color: #000; }
+        .badge-safe { background: #00c853; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        th { color: #00d9ff; }
+        .footer { text-align: center; margin-top: 2rem; color: #666; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔒 Keylogger Detection Report</h1>
+        
+        <div class="status threat">
+            <h2>THREATS DETECTED</h2>
+            <p>Report ID: DET-188FDABAC70B0E28</p>
+        </div>
+
+        <div class="card">
+            <h2>📊 Scan Statistics</h2>
+            <div class="grid">
+                <div class="stat">
+                    <div class="stat-value">750</div>
+                    <div class="stat-label">Processes Scanned</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">19</div>
+                    <div class="stat-label">Connections Analyzed</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value">10</div>
+                    <div class="stat-label">Threats Found</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>💻 System Information</h2>
+            <table>
+                <tr><th>Hostname</th><td>Maksims-Virtual-Machine.local</td></tr>
+                <tr><th>Operating System</th><td>Darwin 26.3</td></tr>
+                <tr><th>Kernel</th><td>25.3.0</td></tr>
+                <tr><th>Memory</th><td>0.00 B / 12.00 GB</td></tr>
+                <tr><th>CPUs</th><td>5</td></tr>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>⚠️ Threat Summary</h2>
+            <div class="grid">
+                <div class="stat">
+                    <div class="stat-value" style="color: #ff1744;">0</div>
+                    <div class="stat-label">Critical</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" style="color: #ff9100;">0</div>
+                    <div class="stat-label">High</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" style="color: #ffea00;">1</div>
+                    <div class="stat-label">Medium</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" style="color: #00e5ff;">9</div>
+                    <div class="stat-label">Low</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-value" style="color: #00c853;">0</div>
+                    <div class="stat-label">Safe</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card"><h2>🔍 Detections</h2><div class="detection low">
+                <h3>Suspicious Process: imklaunchagent</h3>
+                <span class="badge badge-low">🟡 Low</span>
+                <p>Process 'imklaunchagent' (PID: 949) exhibits suspicious behavior</p>
+            </div><div class="detection low">
+                <h3>Suspicious Process: TextInputSwitcher</h3>
+                <span class="badge badge-low">🟡 Low</span>
+                <p>Process 'TextInputSwitcher' (PID: 964) exhibits suspicious behavior</p>
+            </div><div class="detection low">
+                <h3>Suspicious Process: inputanalyticsd</h3>
+                <span class="badge badge-low">🟡 Low</span>
+                <p>Process 'inputanalyticsd' (PID: 935) exhibits suspicious behavior</p>
+            </div><div class="detection low">
+                <h3>Suspicious Process: pet</h3>
+                <span class="badge badge-low">🟡 Low</span>
+                <p>Process 'pet' (PID: 1482) exhibits suspicious behavior</p>
+            </div><div class="detection low">
+                <h3>Suspicious Process: pet</h3>
+                <span class="badge badge-low">🟡 Low</span>
+                <p>Process 'pet' (PID: 26528) exhibits suspicious behavior</p>
+            </div><div class="detection low">
+                <h3>Suspicious Process: pet</h3>
+                <span class="badge badge-low">🟡 Low</span>
+                <p>Process 'pet' (PID: 1406) exhibits suspicious behavior</p>
+            </div><div class="detection low">
+                <h3>Suspicious Process: CursorUIViewService</h3>
+                <span class="badge badge-low">🟡 Low</span>
+                <p>Process 'CursorUIViewService' (PID: 963) exhibits suspicious behavior</p>
+            </div><div class="detection medium">
+                <h3>Suspicious Process: keylogger-detector</h3>
+                <span class="badge badge-medium">🟠 Medium</span>
+                <p>Process 'keylogger-detector' (PID: 31264) exhibits suspicious behavior</p>
+            </div><div class="detection low">
+                <h3>Suspicious Process: keyboardservicesd</h3>
+                <span class="badge badge-low">🟡 Low</span>
+                <p>Process 'keyboardservicesd' (PID: 922) exhibits suspicious behavior</p>
+            </div><div class="detection low">
+                <h3>Suspicious Process: TextInputMenuAgent</h3>
+                <span class="badge badge-low">🟡 Low</span>
+                <p>Process 'TextInputMenuAgent' (PID: 958) exhibits suspicious behavior</p>
+            </div></div>
+
+        <div class="footer">
+            <p>Generated: 2026-01-31 15:34:34.312110 UTC</p>
+            <p>Keylogger Detection Tool v0.1.0</p>
+        </div>
+    </div>
+</body>
+</html>
